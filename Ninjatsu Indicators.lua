@@ -3,7 +3,6 @@
 --This got declined on Primo market??? I assume it's due to the google drive / mega download, so here u have it.
 --this is just a recreation based on what i saw in the original [i think its the original https://www.youtube.com/watch?v=CxAxYsm9N1Q]
 --Also yes, this code is not ideal, but who cares..
-
 ffi.cdef [[
     typedef void*(__thiscall* shell_execute_t)(void*, const char*, const char*); 
 ]] 
@@ -55,6 +54,12 @@ end)
 local screen_size = render.get_screen_size()
 local screen_half_x = screen_size.x * 0.5
 local screen_half_y = screen_size.y * 0.5
+
+if screen_half_x ~= 1280 then --dont even ask
+    turbopremiumfix = -2
+else
+    turbopremiumfix = 2
+end
 
 local dtop = 256
 local dtint = 0
@@ -150,19 +155,19 @@ elseif fdint <= 0 then
 end
 
     if Menu.DoubleTap:get() then 
-        render.texture(doubletaplogo.id, vec2_t(screen_half_x-(doubletaplogo.size.x)/2+2, screen_half_y-position_y:get()-dtint-(doubletaplogo.size.y)/2), vec2_t(doubletaplogo.size.x, screen_half_y-450-(doubletaplogo.size.y)/2), color_t(255,255,255,dtop))
+        render.texture(doubletaplogo.id, vec2_t(screen_half_x-(doubletaplogo.size.x)/2+2, screen_half_y-position_y:get()-dtint-(doubletaplogo.size.y)/2), vec2_t(doubletaplogo.size.x, screen_half_y-450-(doubletaplogo.size.y)/turbopremiumfix), color_t(255,255,255,dtop))
     end
 
     if Menu.HideShots:get() and not Menu.Slowwalk:get() then 
-        render.texture(hideshotslogo.id, vec2_t(screen_half_x-(hideshotslogo.size.x)/2+2, screen_half_y-position_y:get()-hsint-(hideshotslogo.size.y)/2), vec2_t(hideshotslogo.size.x, screen_half_y-450-(hideshotslogo.size.y)/2), color_t(255,255,255,hsop))
+        render.texture(hideshotslogo.id, vec2_t(screen_half_x-(hideshotslogo.size.x)/2+2, screen_half_y-position_y:get()-hsint-(hideshotslogo.size.y)/2), vec2_t(hideshotslogo.size.x, screen_half_y-450-(hideshotslogo.size.y)/turbopremiumfix), color_t(255,255,255,hsop))
     end
 
     if Menu.Slowwalk:get() then 
-        render.texture(slowwalklogo.id, vec2_t(screen_half_x-(slowwalklogo.size.x)/2+2, screen_half_y-position_y:get()-swint-(slowwalklogo.size.y)/2), vec2_t(slowwalklogo.size.x, screen_half_y-450-(slowwalklogo.size.y)/2), color_t(255,255,255,swop))
+        render.texture(slowwalklogo.id, vec2_t(screen_half_x-(slowwalklogo.size.x)/2+2, screen_half_y-position_y:get()-swint-(slowwalklogo.size.y)/2), vec2_t(slowwalklogo.size.x, screen_half_y-450-(slowwalklogo.size.y)/turbopremiumfix), color_t(255,255,255,swop))
     end
 
     if antiaim.is_fakeducking() then 
-        render.texture(fakeducklogo.id, vec2_t(screen_half_x-(fakeducklogo.size.x)/2+2, screen_half_y-position_y:get()-fdint-(fakeducklogo.size.y)/2), vec2_t(fakeducklogo.size.x, screen_half_y-450-(fakeducklogo.size.y)/2), color_t(255,255,255,fdop))
+        render.texture(fakeducklogo.id, vec2_t(screen_half_x-(fakeducklogo.size.x)/2+2, screen_half_y-position_y:get()-fdint-(fakeducklogo.size.y)/2), vec2_t(fakeducklogo.size.x, screen_half_y-450-(fakeducklogo.size.y)/turbopremiumfix), color_t(255,255,255,fdop))
     end
 
 end
