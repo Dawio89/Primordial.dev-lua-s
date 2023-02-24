@@ -1,1 +1,1 @@
-Rich Presence lua for primordial - soon
+real rpc lua coming to the market soon
