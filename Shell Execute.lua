@@ -1,5 +1,3 @@
---ducarii where ffi.load :(
-
 ffi.cdef [[
     typedef void*(__thiscall* shell_execute_t)(void*, const char*, const char*); 
 ]] 
